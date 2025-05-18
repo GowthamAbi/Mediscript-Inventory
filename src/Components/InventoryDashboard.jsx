@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 export default function InventoryDashboard() {
   const [click, setClick] = useState(false); //summary
@@ -43,8 +44,8 @@ export default function InventoryDashboard() {
         {/* Sidebar */}
         <div className='bg-slate-500 w-1/6 md:w-1/12 p-4 text-white text-sm '>
           <ul className='space-y-4'>
-            <li className='cursor-pointer hover:underline'><a href="/inventory/Dashboard">HOME</a></li>
-            <li className='cursor-pointer hover:underline'><a href="/medicine/inventory/stock">STOCK</a></li>
+            <li className='cursor-pointer hover:underline'><Link to="/inventory/Dashboard">HOME</Link></li>
+            <li className='cursor-pointer hover:underline'><Link to="/inventory/stock">STOCK</Link></li>
             <li>
               <div className='flex items-center cursor-pointer' onClick={handleClickSummary}>
                 <span className='hover:underline'>Summary</span>
@@ -52,7 +53,7 @@ export default function InventoryDashboard() {
               </div>
               {click && (
                 <ul className='ml-6 mt-2 space-y-2 text-sm text-white'>
-                  <li className='hover:underline cursor-pointer'>Inward</li>
+                  <li className='hover:underline cursor-pointer'><Link to="/inventory/inward">Inward</Link> </li>
                   <li className='hover:underline cursor-pointer'>Outward</li>
                   <li className='hover:underline cursor-pointer'>Stock</li>
                 </ul>
@@ -72,7 +73,7 @@ export default function InventoryDashboard() {
                 </ul>
               )}
             </li>
-
+         
             <li>
               <div className='flex items-center cursor-pointer' onClick={handleClickRegister}>
                 <span className='hover:underline'>REGISTER</span>

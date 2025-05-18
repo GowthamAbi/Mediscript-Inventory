@@ -5,6 +5,8 @@ import NotFound from './NotFound.jsx';
 import InventoryRegister from './Authentication/InventoryRegister.jsx';
 import InventoryLogin from './Authentication/InventoryLogin.jsx';
 import InventoryDashboard from './Components/InventoryDashboard.jsx';
+import Inventory from './Components/Inventory.jsx';
+import Stock from './Components/Stock.jsx';
 
 
 
@@ -25,6 +27,15 @@ const routes = [
   {
     path:'/inventory/dashboard',
     element:<InventoryDashboard/>
+  },
+  {
+    path:'/inventory/inward',
+    element:<Inventory/>
+  },
+  ,
+  {
+    path:'/inventory/stock',
+    element:<Stock/>
   }
 
 ];
