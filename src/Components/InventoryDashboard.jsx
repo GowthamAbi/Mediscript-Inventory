@@ -1,27 +1,27 @@
 import React, { useState } from 'react';
 
 export default function InventoryDashboard() {
-  const [click, setClick] = useState(false);
-  const [click1, setClick1] = useState(false);
-  const [click2, setClick2] = useState(false);
+  const [click, setClick] = useState(false); //summary
+  const [click1, setClick1] = useState(false); //PO
+  const [click2, setClick2] = useState(false); //register
 
  // Handles Summary dropdown
  const handleClickSummary = () => {
 
-  setClick1(!click1  );
-  if (click2) setClick2(false);
+  setClick(!click  );
+  if (!click) {setClick1(false),setClick2(false)};
 };
 
   // Handles PO dropdown
   const handleClickPO = () => {
-    setClick(!click);
-    if (click1) setClick1(false);
+    setClick1(!click1);
+    if (!click1) {setClick2(false),setClick(false)};
   };
 
   // Handles REGISTER dropdown
   const handleClickRegister = () => {
-    setClick1(!click1);
-    if (click) setClick(false);
+    setClick2(!click2);
+    if (!click2) {setClick(false),setClick1(false)};
   };
 
   return (
@@ -43,14 +43,14 @@ export default function InventoryDashboard() {
         {/* Sidebar */}
         <div className='bg-slate-500 w-1/6 md:w-1/12 p-4 text-white text-sm '>
           <ul className='space-y-4'>
-            <li className='cursor-pointer hover:underline'><a href="/api/v1/auth/inventory/Dashboard">HOME</a></li>
-            <li className='cursor-pointer hover:underline'><a href="/api/v1/medicine/inventory/stock">STOCK</a></li>
+            <li className='cursor-pointer hover:underline'><a href="/inventory/Dashboard">HOME</a></li>
+            <li className='cursor-pointer hover:underline'><a href="/medicine/inventory/stock">STOCK</a></li>
             <li>
               <div className='flex items-center cursor-pointer' onClick={handleClickSummary}>
                 <span className='hover:underline'>Summary</span>
-                <span className='ml-2 text-yellow-300'>{click2 ? '▼' : '▶'}</span>
+                <span className='ml-2 text-yellow-300'>{click ? '▼' : '▶'}</span>
               </div>
-              {click2 && (
+              {click && (
                 <ul className='ml-6 mt-2 space-y-2 text-sm text-white'>
                   <li className='hover:underline cursor-pointer'>Inward</li>
                   <li className='hover:underline cursor-pointer'>Outward</li>
@@ -62,9 +62,9 @@ export default function InventoryDashboard() {
             <li>
               <div className='flex items-center cursor-pointer' onClick={handleClickPO}>
                 <span className='hover:underline'>PO</span>
-                <span className='ml-2 text-yellow-300'>{click ? '▼' : '▶'}</span>
+                <span className='ml-2 text-yellow-300'>{click1 ? '▼' : '▶'}</span>
               </div>
-              {click && (
+              {click1 && (
                 <ul className='ml-6 mt-2 space-y-2 text-sm text-white'>
                   <li className='hover:underline cursor-pointer'>PO CREATE</li>
                   <li className='hover:underline cursor-pointer'>PO STATUS</li>
@@ -76,9 +76,9 @@ export default function InventoryDashboard() {
             <li>
               <div className='flex items-center cursor-pointer' onClick={handleClickRegister}>
                 <span className='hover:underline'>REGISTER</span>
-                <span className='ml-2 text-yellow-300'>{click1 ? '▼' : '▶'}</span>
+                <span className='ml-2 text-yellow-300'>{click2 ? '▼' : '▶'}</span>
               </div>
-              {click1 && (
+              {click2 && (
                 <ul className='ml-6 mt-2 space-y-2 text-sm text-white'>
                   <li className='hover:underline cursor-pointer'>MEDICINE</li>
                   <li className='hover:underline cursor-pointer'>INVENTORY</li>
