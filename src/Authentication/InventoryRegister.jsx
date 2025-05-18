@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from 'react-router-dom';
-import api from "../../../services/authService";
+import api from "../services/authService";
+
 
 const InventoryRegister =()=>{
     const navigator=useNavigate()
@@ -34,7 +35,7 @@ const InventoryRegister =()=>{
             const response=await api.post('/api/v1/auth/inventory/register',formData)
             console.log('Registration Success:', response.data);
             alert('Registered successfully!');
-            navigator('/api/v1/auth/inventory/login')
+            navigator('/inventory/login')
           } catch (err) {
             console.error('Registration failed:', err);
             alert('Registration failed. Check console for details.');

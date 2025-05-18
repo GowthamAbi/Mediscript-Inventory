@@ -1,6 +1,9 @@
 import React from 'react'; 
 import { createBrowserRouter } from 'react-router-dom'; 
 import App from './App.jsx';
+import NotFound from './NotFound.jsx';
+import InventoryRegister from './Authentication/InventoryRegister.jsx';
+import InventoryLogin from './Authentication/InventoryLogin.jsx';
 
 
 
@@ -8,12 +11,16 @@ const routes = [
   {
     path: '/',
     element: <App />,
-    children: [
-      {
-        path: '',
-        element:<App /> 
-      }
-    ]
+    errorElement:<NotFound/>
+  },
+  {
+    path:'/inventory/register',
+    element:<InventoryRegister/>
+  }
+  ,
+  {
+    path:'/inventory/login',
+    element:<InventoryLogin/>
   }
 ];
 

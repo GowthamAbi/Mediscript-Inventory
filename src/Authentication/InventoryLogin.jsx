@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import api from '../../../services/authService';
 import { useNavigate } from 'react-router-dom';
+import api from '../services/authService';
 
 export default function InventoryLogin() {
   const navigate = useNavigate()
